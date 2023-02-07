@@ -1,0 +1,18 @@
+version: '3.1'
+services:
+  app:
+    container_name: ecommerce
+    image: ecommerce
+    build: ./
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgresqldb
+  postgresqldb:
+    image: postgres:latest
+    environment:
+      - POSTGRES_PASSWORD=123456789Oury
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=dbecommerce
+    ports:
+      - "5432:5432"
